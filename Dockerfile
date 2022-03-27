@@ -90,11 +90,11 @@ COPY 	--from=builder-sps /usr/local/bin/shairport-sync /usr/local/bin/shairport-
 # Create non-root user for running the container -- running as the user 'shairport-sync' also allows
 # Shairport Sync to provide the D-Bus and MPRIS interfaces within the container
 
-RUN 	addgroup shairport-sync 
+RUN 	addgroup shairport-sync
 RUN 	adduser -D shairport-sync -G shairport-sync
 
 # Add the shairport-sync user to the pre-existing audio group, which has ID 29, for access to the ALSA stuff
-RUN 	addgroup -g 29 docker_audio && addgroup shairport-sync docker_audio
+RUN 	addgroup -g 996 docker_audio && addgroup shairport-sync docker_audio
 
 COPY 	start.sh /
 

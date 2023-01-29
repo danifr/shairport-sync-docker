@@ -8,6 +8,8 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    env:
+      SHAIRPORT_SYNC_VERSION: 4.1.1
     steps:
       -
         name: Checkout
@@ -30,5 +32,8 @@ jobs:
         with:
           context: .
           platforms: linux/arm/v6,linux/arm/v7,linux/arm64
+          build-args: SHAIRPORT_SYNC_BRANCH=${{ env.SHAIRPORT_SYNC_VERSION }}
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shairport-sync-alarm:latest
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/shairport-sync-alarm:${{ env.SHAIRPORT_SYNC_VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/shairport-sync-alarm:latest

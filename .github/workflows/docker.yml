@@ -9,7 +9,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     env:
-      SHAIRPORT_SYNC_VERSION: 4.3.4
+      SHAIRPORT_SYNC_VERSION: 4.3.5
       NQPTP_BRANCH: main
     steps:
       -

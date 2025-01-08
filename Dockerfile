@@ -53,8 +53,8 @@ WORKDIR /
 ##### NQPTP END #####
 
 ##### SPS #####
+RUN git clone https://github.com/mikebrady/shairport-sync
 WORKDIR /shairport-sync
-COPY . .
 RUN git checkout "$SHAIRPORT_SYNC_BRANCH"
 WORKDIR /shairport-sync/build
 RUN autoreconf -i ../
